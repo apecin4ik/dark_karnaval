@@ -1,0 +1,83 @@
+# Мир, в котором появляется шахта (rtp-мир)
+world: grief-1
+
+# Часовой пояс и подпись для сообщений
+timezone: "Europe/Moscow"
+timezone-label: "МСК"
+
+# Время запуска ивента (формат ЧЧ:ММ, обязательно с нулём: 08:00)
+start-times:
+  - "08:00"
+  - "19:00"
+
+# За сколько минут до старта предупреждать в чате
+announce-before-minutes:
+  - 5
+  - 1
+
+# Сколько минут идёт ивент
+duration-minutes: 15
+
+# Где появляется шахта: случайная точка в кольце вокруг центра
+location:
+  center-x: 0
+  center-z: 0
+  min-radius: 300
+  max-radius: 3000
+
+# Шахта
+structure:
+  # generated — шахту строит сам плагин; schematic — схематика carnival.schem (по умолчанию)
+  mode: "schematic"
+  # Файл лежит в plugins/DarkCarnival/schematics/ (формат .schem от WorldEdit)
+  schematic-file: "carnival.schem"
+  # Смещение по высоте (например -2, чтобы утопить схематику в землю)
+  schematic-y-offset: 0
+  # Заменять ли воздух из схематики (true — вырежет полость в рельефе)
+  schematic-paste-air: false
+  # Защитить от поломки саму постройку (игроки, взрывы, мобы, поршни)
+  protect-structure: true
+  # Заполнить полость схематики обсидианом, плачущим обсидианом и спрятать тыквы
+  # (шанс плачущего и число тыкв — crying-obsidian-chance и pumpkins ниже)
+  fill-interior: true
+  # Блоки, которые считаются очками. Всё остальное в схематике (кирпичи, якоря и т.д.) не ломается
+  mineable-blocks:
+    - OBSIDIAN
+    - CRYING_OBSIDIAN
+    - PUMPKIN
+    - CARVED_PUMPKIN
+    - JACK_O_LANTERN
+  # Ниже: size, depth и height — только для mode: generated; crying-obsidian-chance и pumpkins работают в обоих режимах
+  # Сторона квадрата шахты в блоках (нечётное число: 17 = 17x17)
+  size: 17
+  # Глубина шахты в блоках вниз от поверхности земли
+  depth: 15
+  # Сколько слоёв шахты торчит над землёй
+  height: 2
+  # Шанс, что блок будет плачущим обсидианом (0.0 - 1.0)
+  crying-obsidian-chance: 0.35
+  # Сколько тыкв спрятано внутри
+  pumpkins: 25
+
+# Очки за добытый блок (по умолчанию 1)
+points:
+  OBSIDIAN: 1
+  CRYING_OBSIDIAN: 1
+  PUMPKIN: 5
+  CARVED_PUMPKIN: 5
+  JACK_O_LANTERN: 5
+
+# Награда в Лей (PlayerPoints) за места
+rewards:
+  1: 50
+  2: 20
+  3: 10
+
+# Название валюты в сообщениях
+currency-name: "Лей✞"
+
+# Убирать шахту после окончания и возвращать местность как была
+remove-structure-after-end: true
+
+# Префикс сообщений
+prefix: "&6&lДарк Карнавал &8» &7"
